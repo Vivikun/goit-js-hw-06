@@ -8,11 +8,9 @@ form.addEventListener("submit", function (event) {
       formData[element.name] = element.value;
     }
   }
-
   if (!formData.email.trim() || !formData.password.trim()) {
-    alert("Wszystkie pola powinny zostać wypełnione.");
+    alert("Please fill in all the fields!");
     return;
   }
-  console.log(formData);
   form.reset();
 });
