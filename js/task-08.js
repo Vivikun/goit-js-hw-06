@@ -1,16 +1,23 @@
 const form = document.querySelector(".login-form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  const formElements = form.elements;
-  const formData = {};
-  for (const element of formElements) {
+  const formElements = [...form.elements];
+  const formData = formElements.reduce((data, element) => {
     if (element.tagName === "INPUT") {
-      formData[element.name] = element.value;
+      data[element.name] = element.value;
     }
-  }
-  if (!formData.email.trim() || !formData.password.trim()) {
+    return data;
+  }, {});
+
+  if (
+    !formData.email ||
+    !formData.password ||
+    !formData.email.trim() ||
+    !formData.password.trim()
+  ) {
     alert("Please fill in all the fields!");
-    return;
+  } else {
+    console.log(formData);
+    form.reset();
   }
-  form.reset();
 });

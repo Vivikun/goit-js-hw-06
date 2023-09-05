@@ -8,6 +8,6 @@ items.forEach((document) => {
   const title = document.querySelector("h2").textContent;
   const elementCategory = document.querySelectorAll("li");
   const numberOfItems = elementCategory.length;
-  console.log("Category: " + title);
-  console.log("Elements: " + numberOfItems);
+  console.log("Category: ", title);
+  console.log("Elements: ", numberOfItems);
 });

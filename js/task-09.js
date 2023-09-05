@@ -6,13 +6,10 @@ function getRandomHexColor() {
 }
 
 const button = document.querySelector(".change-color");
-const widget = document.querySelector(".widget");
 const colorSpan = document.querySelector(".color");
 
-if (button && widget && colorSpan) {
-  button.addEventListener("click", function () {
-    const randomColor = getRandomHexColor();
-    widget.style.backgroundColor = randomColor;
-    colorSpan.textContent = randomColor;
-  });
-}
+button.addEventListener("click", () => {
+  const randomColor = getRandomHexColor();
+  colorSpan.textContent = randomColor;
+  document.body.style.backgroundColor = randomColor;
+});
